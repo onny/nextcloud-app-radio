@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>radio</id>
+	<name>Radio</name>
+	<description>Listening to your favorite radio stations in NextCloud</description>
+	<version>0.1</version>
+	<licence>MIT</licence>
+	<author>Jonas Heinrich</author>
+	<requiremin>9</requiremin>
+</info>
