@@ -1,8 +1,15 @@
-body {
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing: border-box;
+}
+
+#radiocontainer {
+  width: 100%;
   padding: 20px;
 }
 
-input {
+#radioquery {
   width: 100%;
   margin-bottom: 20px;
 }
