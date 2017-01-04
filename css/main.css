@@ -31,3 +31,11 @@ tr:hover {
   background-color: edeff2;
   transition: all 0.1s ease;
 }
+
+img.fav:hover {
+  display:none;
+}
+
+img.homepage:hover {
+  display:none;
+}

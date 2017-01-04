@@ -10,10 +10,10 @@ $(window).on('load', function(){
     $("tbody > tr").remove();
     $.each(data, function(i, station) {
       $('tbody').append('<tr src='+station['url']+'>\
-                          <td width=60px align=center><img width=20px height=20px src='+OC.imagePath('radio','fav.png')+'></td>\
+                          <td width=60px align=center><img class=fav width=20px height=20px src='+OC.imagePath('radio','fav.png')+'></td>\
                           <td width=60px align=center><img width=40px height=40px src='+station['favicon']+'></td>\
                           <td>'+station['name']+'</td>\
-                          <td width=60px align=center><a href="'+station['homepage']+'" target="_blank"><img width=20px height=20px src='+OC.imagePath('radio','homepage.png')+'></a></td>\
+                          <td width=60px align=center><a href="'+station['homepage']+'" target="_blank"><img class=homepage width=20px height=20px src='+OC.imagePath('radio','homepage.png')+'></a></td>\
                         </tr>');
     });
   }
