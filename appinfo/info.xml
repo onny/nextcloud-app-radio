@@ -3,8 +3,11 @@
 	<id>radio</id>
 	<name>Radio</name>
 	<description>Listening to your favorite radio stations in NextCloud</description>
-	<version>0.1</version>
+	<version>0.2</version>
 	<licence>MIT</licence>
 	<author>Jonas Heinrich</author>
-	<requiremin>9</requiremin>
+	<dependencies>
+		<owncloud min-version="9.1" max-version="9.2"/>
+		<nextcloud min-version="10" max-version="11"/>
+  </dependencies>
 </info>

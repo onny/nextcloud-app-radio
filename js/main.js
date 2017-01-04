@@ -10,10 +10,18 @@ $(window).on('load', function(){
     $("tbody > tr").remove();
     $.each(data, function(i, station) {
       $('tbody').append('<tr src='+station['url']+'>\
-                          <td width=60px align=center><img class=fav width=20px height=20px src='+OC.imagePath('radio','fav.png')+'></td>\
-                          <td width=60px align=center><img width=40px height=40px src='+station['favicon']+'></td>\
-                          <td>'+station['name']+'</td>\
-                          <td width=60px align=center><a href="'+station['homepage']+'" target="_blank"><img class=homepage width=20px height=20px src='+OC.imagePath('radio','homepage.png')+'></a></td>\
+                          <td class="filename">\
+                            <a href="#" class="action action-favorite" data-original-title="" title="">\
+                              <span class="icon icon-star"></span>\
+                              <span class="hidden-visually">Favorite</span>\
+                            </a>\
+                            <label for="select-files-3">\
+                              <div class="thumbnail" style="background-image:url('+station['favicon']+'); background-size: 32px;"></div>\
+                            </label>\
+                            <a class="name" href="#">\
+                              <span class="nametext"><span class="innernametext">'+station['name']+'</span></span>\
+                            </a>\
+                          </td>\
                         </tr>');
     });
   }
