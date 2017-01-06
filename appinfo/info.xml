@@ -2,7 +2,7 @@
 <info>
 	<id>radio</id>
 	<name>Radio</name>
-	<description>Listening to your favorite radio stations in NextCloud</description>
+	<description>Listening to your favorite radio stations in Nextcloud</description>
 	<version>0.2</version>
 	<licence>MIT</licence>
 	<author>Jonas Heinrich</author>

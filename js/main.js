@@ -1,7 +1,7 @@
 $(window).on('load', function(){
 
   $('body').on('click', 'tr', function() {
-    var sourceUrl = $(this).attr('src');
+    var sourceUrl = $(this).attr('data-src');
     $("#player").attr("src", sourceUrl);
     $('#player').trigger('play');
   });
@@ -9,7 +9,7 @@ $(window).on('load', function(){
   function show_result(data){
     $("tbody > tr").remove();
     $.each(data, function(i, station) {
-      $('tbody').append('<tr src='+station['url']+'>\
+      $('tbody').append('<tr data-src='+station['url']+' data-id='+station['id']+'>\
                           <td class="filename">\
                             <a href="#" class="action action-favorite" data-original-title="" title="">\
                               <span class="icon icon-star"></span>\
