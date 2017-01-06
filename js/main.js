@@ -6,7 +6,7 @@ $(window).on('load', function(){
     $('#player').trigger('play');
   });
 
-  function show_result(data){
+  function render_result(data){
     $("tbody > tr").remove();
     $.each(data, function(i, station) {
       $('tbody').append('<tr data-src='+station['url']+' data-id='+station['id']+'>\
@@ -26,20 +26,58 @@ $(window).on('load', function(){
     });
   }
 
-  function search(query){
+  function radio_query(type, query){
+    switch (type) {
+      case 0:
+        var url = "https://www.radio-browser.info/webservice/json/stations/search";
+        break;
+      case 1:
+        var url = "https://www.radio-browser.info/webservice/json/stations/topclick/20";
+        break;
+      case 2:
+        var url = "https://www.radio-browser.info/webservice/json/stations/lastchange/20";
+        break;
+    };
     $.ajax({
       method: "POST",
-      url: 'https://www.radio-browser.info/webservice/json/stations/search',
+      url: url,
       data: {
         name: query
       },
       dataType: 'json',
-      success: show_result
+      success: render_result
     });
   };
 
+  function switch_menu(type) {
+      $('#app-navigation').find('li').removeClass("active");;
+      switch (type) {
+        case 0:
+          $('li.nav-files').addClass('active');
+          radio_query(1);
+          break;
+        case 1:
+          $('li.nav-recent').addClass('active');
+          radio_query(2);
+          break;
+        case 2:
+          $('li.nav-favorite').addClass('active');
+          break;
+      }
+  }
+
   $('#radiosearch').submit(function() {
     var query = $('#radioquery').val();
-    search(query);
+    radio_query(0, query);
   });
+
+  $('a.nav-icon-files').click(function() {
+    switch_menu(0);
+  });
+
+  $('a.nav-icon-recent').click(function() {
+    switch_menu(1);
+  });
+
+  switch_menu(0);
 });

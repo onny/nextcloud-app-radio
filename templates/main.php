@@ -33,13 +33,6 @@
                     <form id="radiosearch" action="javascript:void(0);">
                       <input id="radioquery" placeholder="Search for name" autofocus required></input>
                     </form>
-                    <div id="files-setting-showhidden">
-                        <input class="checkbox" id="showhiddenfilesToggle" checked="checked" type="checkbox">
-                        <label for="showhiddenfilesToggle">Show hidden files</label>
-                    </div>
-                    <label for="webdavurl">WebDAV</label>
-                    <input id="webdavurl" type="text" readonly="readonly" value="http://127.0.0.1/remote.php/webdav/" />
-                    <em>Use this address to <a href="https://docs.nextcloud.com/server/11/go.php?to=user-webdav" target="_blank" rel="noreferrer">access your Files via WebDAV</a></em>
                 </div>
             </div>
         </div>
@@ -56,23 +49,9 @@
                     </tr>
                 </thead>
                 <tbody id="fileList">
-                <tr>
-                  <td class="filename">
-                    <a href="#" class="action action-favorite " data-original-title="" title="">
-                      <span class="icon icon-star"></span>
-                      <span class="hidden-visually">Favorite</span>
-                    </a>
-                    <label for="select-files-3">
-                      <div class="thumbnail" style="background-image:url('http://www.swr.de/static/favicons/SWR1/favicons/SWR1_96.png'); background-size: 32px;"></div>
-                    </label>
-                    <a class="name" href="#">
-                      <span class="nametext"><span class="innernametext">Radio 3</span></span>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-              <tfoot>
-              </tfoot>
+                </tbody>
+                <tfoot>
+                </tfoot>
             </table>
         </div>
     </div>
