@@ -10,3 +10,12 @@ $this->create('radio_index', '/')
 	->actionInclude('radio/index.php');
 $this->create('radio_ajax_seturl', 'ajax/seturl.php')
 	->actionInclude('radio/ajax/seturl.php');
+
+return [
+    'resources' => [
+        'station' => ['url' => '/stations'],
+    ],
+    'routes' => [
+        ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
+    ]
+];

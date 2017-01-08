@@ -3,7 +3,7 @@
 	<id>radio</id>
 	<name>Radio</name>
 	<description>Listening to your favorite radio stations in Nextcloud</description>
-	<version>0.2</version>
+	<version>0.3</version>
 	<licence>MIT</licence>
 	<author>Jonas Heinrich</author>
 	<dependencies>

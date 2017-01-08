@@ -1,13 +1,25 @@
 $(window).on('load', function(){
 
   $('body').on('click', 'tr', function() {
-    var sourceUrl = $(this).attr('data-src');
-    $("#player").attr("src", sourceUrl);
-    $('#player').trigger('play');
+    var stationid = $(this).attr('data-id');
+    play_station(stationid);
   });
 
+  function play_station(stationid){
+      $.ajax({
+        method: "GET",
+        url: "http://www.radio-browser.info/webservice/v2/json/url/"+stationid,
+        dataType: 'json',
+        success: function(data){
+          var sourceUrl = data['url'];
+          $("#player").attr("src", sourceUrl);
+          $('#player').trigger('play');
+          return true;
+        }
+      });
+  };
+
   function render_result(data){
-    $("tbody > tr").remove();
     $.each(data, function(i, station) {
       $('tbody').append('<tr data-src='+station['url']+' data-id='+station['id']+'>\
                           <td class="filename">\
@@ -25,6 +37,21 @@ $(window).on('load', function(){
                         </tr>');
     });
   }
+
+  function get_station_ids(){
+      return ["89920","44707"]
+  };
+
+  function render_stations(station_ids){
+    for (stationid in station_ids){
+      $.ajax({
+        method: "GET",
+        url: "https://www.radio-browser.info/webservice/json/stations/byid/"+station_ids[stationid],
+        dataType: 'json',
+        success: render_result
+      });
+    };
+  };
 
   function radio_query(type, query){
     switch (type) {
@@ -50,7 +77,8 @@ $(window).on('load', function(){
   };
 
   function switch_menu(type) {
-      $('#app-navigation').find('li').removeClass("active");;
+      $('#app-navigation').find('li').removeClass("active");
+      $("tbody > tr").remove();
       switch (type) {
         case 0:
           $('li.nav-files').addClass('active');
@@ -62,11 +90,14 @@ $(window).on('load', function(){
           break;
         case 2:
           $('li.nav-favorite').addClass('active');
+          station_ids = get_station_ids()
+          render_stations(station_ids)
           break;
       }
   }
 
   $('#radiosearch').submit(function() {
+    $("tbody > tr").remove();
     var query = $('#radioquery').val();
     radio_query(0, query);
   });
@@ -77,6 +108,10 @@ $(window).on('load', function(){
 
   $('a.nav-icon-recent').click(function() {
     switch_menu(1);
+  });
+
+  $('a.nav-icon-favorites').click(function() {
+    switch_menu(2);
   });
 
   switch_menu(0);
