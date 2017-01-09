@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+$(function(){
 
   $('body').on('click', 'tr', function() {
     var stationid = $(this).attr('data-id');
@@ -73,7 +73,8 @@ $(window).on('load', function(){
       method: "POST",
       url: url,
       data: {
-        name: query
+        name: query,
+        limit: 20
       },
       dataType: 'json',
       success: render_result
@@ -100,12 +101,6 @@ $(window).on('load', function(){
       }
   }
 
-  $('#radiosearch').submit(function() {
-    $("tbody > tr").remove();
-    var query = $('#radioquery').val();
-    radio_query(0, query);
-  });
-
   $('a.nav-icon-files').click(function() {
     switch_menu(0);
   });
@@ -119,7 +114,8 @@ $(window).on('load', function(){
   });
 
   function mySearch(query){
-    alert('test');
+    $("tbody > tr").remove();
+    radio_query(0, query);
   };
 
   OC.Plugins.register('OCA.Search', {

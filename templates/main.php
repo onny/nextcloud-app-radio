@@ -25,9 +25,6 @@
             </ul>
             <div id="app-settings">
                 <audio id="player" src="" controls></audio>
-                <form id="radiosearch" action="javascript:void(0);">
-                  <input id="radioquery" placeholder="Search for name" autofocus required></input>
-                </form>
             </div>
         </div>
     <div id="app-content">
