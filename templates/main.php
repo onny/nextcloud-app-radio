@@ -24,16 +24,10 @@
                 </li>
             </ul>
             <div id="app-settings">
-                <div id="app-settings-header">
-                    <button class="settings-button" data-apps-slide-toggle="#app-settings-content">
-				Settings			</button>
-                </div>
-                <div id="app-settings-content">
-                    <audio id="player" src="" controls></audio>
-                    <form id="radiosearch" action="javascript:void(0);">
-                      <input id="radioquery" placeholder="Search for name" autofocus required></input>
-                    </form>
-                </div>
+                <audio id="player" src="" controls></audio>
+                <form id="radiosearch" action="javascript:void(0);">
+                  <input id="radioquery" placeholder="Search for name" autofocus required></input>
+                </form>
             </div>
         </div>
     <div id="app-content">

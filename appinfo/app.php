@@ -23,8 +23,6 @@
 *
 */
 
-OCP\App::registerAdmin( 'radio', 'settings' );
-
 OCP\App::addNavigationEntry( array(
 	'id' => 'radio',
 	'order' => 74,

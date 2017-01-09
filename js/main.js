@@ -5,6 +5,10 @@ $(window).on('load', function(){
     play_station(stationid);
   });
 
+  function station_fav(stationid){
+      alert("faving");
+  };
+
   function play_station(stationid){
       $.ajax({
         method: "GET",
@@ -23,7 +27,7 @@ $(window).on('load', function(){
     $.each(data, function(i, station) {
       $('tbody').append('<tr data-src='+station['url']+' data-id='+station['id']+'>\
                           <td class="filename">\
-                            <a href="#" class="action action-favorite" data-original-title="" title="">\
+                            <a href="#" class="action action-favorite" onclick="station_fav();">\
                               <span class="icon icon-star"></span>\
                               <span class="hidden-visually">Favorite</span>\
                             </a>\
@@ -39,7 +43,7 @@ $(window).on('load', function(){
   }
 
   function get_station_ids(){
-      return ["89920","44707"]
+      return ["89920","44707","91101","85755","45281","78011","91102"]
   };
 
   function render_stations(station_ids){
@@ -112,6 +116,16 @@ $(window).on('load', function(){
 
   $('a.nav-icon-favorites').click(function() {
     switch_menu(2);
+  });
+
+  function mySearch(query){
+    alert('test');
+  };
+
+  OC.Plugins.register('OCA.Search', {
+      attach: function(search) {
+          search.setFilter('radio', mySearch);
+      }
   });
 
   switch_menu(0);
